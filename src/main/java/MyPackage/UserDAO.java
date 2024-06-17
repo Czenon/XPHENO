@@ -51,6 +51,34 @@ public class UserDAO {
 		return rowsAffected;
     }
     
+public int loginAsUser(User user) {
+    	
+    	// Check if user exists first
+    	int userID = 0;
+    	int rowsAffected = 0;
+    	String username = null;
+    	
+    	try (Connection connection = DBConnection.getConnection();  
+    			PreparedStatement preparedStatement = connection.prepareStatement(
+                "SELECT id, username FROM users WHERE username = ? AND password = ?;")) {
+         
+    			preparedStatement.setString(1, user.getUsername());
+    			preparedStatement.setString(2, user.getPassword());
+    			ResultSet userIDRS = preparedStatement.executeQuery();
+    			
+            if (userIDRS.next()) {
+            	userID = userIDRS.getInt(1);
+            	username = userIDRS.getString(2);
+            	System.out.println("Existing user ID: " + userID + "\tExisting user nickname: " + username);
+            	}
+            }
+    	
+    	catch (SQLException e) {
+    		e.printStackTrace();
+    	}
+		return rowsAffected;
+    }
+    
     public void updateGame(Game game) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(

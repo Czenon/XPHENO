@@ -22,11 +22,11 @@
             </div>
          <div id="formcontainer">
             <div id="center">
-                <form action="PUT JSP HERE" method="post">
+                <form action="/XPHENO/LoginServlet" method="post">
                     <br><br><br>
                     <h2 style="color:goldenrod; padding-bottom: 1em">Sign in to your account</h2>
                     <p>USERNAME</p>
-                    <input type="text" placeholder="Enter your nickname" required>
+                    <input type="text" id="username" name="username" placeholder="Enter your nickname" required>
                     <br>
                     <p>PASSWORD</p>
                     <input type="password" id="password" minlength="6" maxlength="20" placeholder="Enter your password" required>

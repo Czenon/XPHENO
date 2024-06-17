@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="css/gameview.css">
     </head>
     <body>
-        <h1 style="text-align: center; color: brown;"><a href="index.html">XPHENO - REAL NIGGA GAMING</a></h1>
+        <h1 style="text-align: center; color: brown;"><a href="index.jsp">XPHENO - REAL NIGGA GAMING</a></h1>
         <div id="container" class="container">
             <img src="img/banner.png" style="height: 150px; width: 100%; object-fit:cover; border: 2px solid rgb(30, 87, 68)">
             <img id="eye" src="img/eyeshitpost.gif">
