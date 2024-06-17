@@ -1,0 +1,27 @@
+body{
+    background-color: black;
+}
+div{
+    color:aliceblue;
+}
+.boxleft{
+    background-color:darkblue;
+    margin: auto;
+    float: left;
+}
+.boxcenter{
+    background-color: cadetblue;
+    float:unset;
+    margin: auto;
+
+    
+}
+.boxright{
+    background-color: rgb(34, 57, 51);
+    width: 200px;
+    height: auto;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    float: right;
+}

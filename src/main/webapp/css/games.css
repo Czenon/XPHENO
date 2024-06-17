@@ -1,0 +1,69 @@
+body{
+    background-image: url(../img/metrobg.png);
+    background-size: cover;
+    background-color: rgb(0, 5, 25);
+    margin-left: 300px;
+    margin-right: 300px;
+    color:rgb(130, 215, 241);
+}
+a, a:visited{
+    color: brown;
+    text-decoration: none;
+}
+.screenshots{
+    max-width: 90%;
+    border-style: double; 
+    border-color: rgb(85, 21, 21);
+    border-radius: 2%;
+}
+.container2{
+    border-style:solid;
+    border-color: rgb(38, 5, 5);
+}
+#sitedescription{
+    text-align: justify; 
+    margin-left: 2%; 
+    margin-right: 2%; 
+    padding-left: 2%;
+    padding-right: 5%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    border-left-width: 0.3em; 
+    border-left-color: green; 
+    border-left-style: solid;
+    border-radius: 1px;
+    background-color: rgb(9, 17, 17);
+    color:rgb(99, 185, 255);
+}
+#menu{
+    background-color: rgb(186, 200, 255);
+    text-align: center;
+}
+
+#left{
+    background-color: black;
+    width: 20%;
+    height: 70vh;
+    float: left;
+}
+#middle{
+    background-color: black;
+    width: 44.3%;
+    height: 70vh;
+    float: left;
+    border-right: 1px solid black;
+}
+#right{
+    background-color: black;
+    width: 33.3%;
+    height: 70vh;
+    float: left;
+    padding-left: 2%;
+    border-left-width: 0.3em; 
+    border-left-color: rgb(0, 43, 20); 
+    border-left-style: solid;
+}
+#eye{
+    position: fixed;
+    right: 0.2%;
+}
