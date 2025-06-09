@@ -7,9 +7,10 @@ body{
     color:rgb(130, 215, 241);
 }
 a, a:visited{
-    color: brown;
+    color: rgb(128, 0, 0);
     text-decoration: none;
 }
+
 .screenshots{
     max-width: 90%;
     border-style: double; 
@@ -38,8 +39,8 @@ a, a:visited{
 #menu{
     background-color: rgb(186, 200, 255);
     text-align: center;
+    color: #4a3681;
 }
-
 #left{
     background-color: black;
     width: 20%;

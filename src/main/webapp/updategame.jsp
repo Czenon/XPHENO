@@ -16,7 +16,7 @@
             <div id="menu">
 
                 <a href="index.jsp" class="gamemenu">Home</a>
-                <a href="/XPHENO/GameUploadServlet?action=getgames	" class="gamemenu">Games</a>
+                <a href="/XPHENO/GameUploadServlet?action=getgames" class="gamemenu">Games</a>
                 <a href="upload.jsp" class="gamemenu">Upload</a>
                 <a href="login.jsp" class="gamemenu">                
                 <%
@@ -33,12 +33,8 @@
                 </a>
                 <div>Logged in as <b><%
 			String session_u_name = (String)session.getAttribute("username");
-                if (session_u_name == null) {
-                	out.print("Guest");
-                }
-                else {
-                	out.print(session_u_name);
-                }
+                if (session_u_name == null) {session_u_name = "Guest"; session.setAttribute("username", "Guest");}
+                out.print(session_u_name);
 %>
 </b></div>                
             </div>
@@ -47,7 +43,7 @@
                     <img src="img/img.jpg" style="max-width: 30vh; max-height: 70vh;">
                 </div>
                 <div id="middle">
-                    <p id="sitedescription">Upload your epic game here! (Satisfaction might be guaranteed)</p>
+                    <p id="sitedescription">Update your game data</p>
                     <hr>
                  <div id="desc">
                             <label>Game Title:</label>
@@ -59,8 +55,9 @@
                             <label>Upload cover image:</label>
                     </div>
                  <div id="inputs">
-                 <form action="/XPHENO/GameUploadServlet?action=uploadgame" method="post" enctype="multipart/form-data">
-                    <input id="gametitle" name="gametitle" type="text" required>
+                 <form action="/XPHENO/GameUploadServlet?action=updategame" method="post" enctype="multipart/form-data">
+                 <input type="hidden" name="id" value="<%= request.getParameter("id") %>">
+                    <input id="gametitle" name="gametitle" type="text" value="<%= request.getParameter("title") %>" required>
                     <br>
                     <select id="gamegenre" name="gamegenre" required>
                         <option value="FPS">FPS</option>
@@ -71,12 +68,12 @@
                         <option value="4X">4X</option>
                     </select>
                     <br>
-                    <textarea id="gamedesc" name="gamedesc" rows="8" required></textarea>
+                    <textarea id="gamedesc" name="gamedesc"  rows="8" required><%= request.getParameter("description") %></textarea>
                     <br>
                     <input type="file" id="file" name="file" accept="image/jpeg, image/png" required>
                     <br><br>
                     <input id="clearbutton" type="reset" value="Clear all fields">
-                    <input id="releasebutton" onclick="showUploadMsg()" type="submit" value="Publish your game!">
+                    <input id="releasebutton" onclick="showUploadMsg()" type="submit" value="Update your game data!">
                 </form>
                 <p id="statuslabel"></p>    
                 </div>

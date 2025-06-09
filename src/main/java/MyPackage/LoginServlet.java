@@ -1,5 +1,6 @@
 package MyPackage;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -19,7 +20,6 @@ public class LoginServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String username = request.getParameter("username");
@@ -33,13 +33,20 @@ public class LoginServlet extends HttpServlet {
 		user.setPassword(password);
 		
 		// Return number of rows updated from creating a new user
-		int rowsAffected = userDAO.loginAsUser(user);
-		
-		if (rowsAffected > 0) {
-			response.sendRedirect("registration-success.jsp");
-		} else {
-			response.sendRedirect("registration-failure.jsp");
+		String userNick = userDAO.loginAsUser(user);
+		if (userNick != null) {
+		System.out.println("USERNICK: " + userNick);
+	     request.setAttribute("username", userNick);
+
+	     RequestDispatcher dispatcher = request.getRequestDispatcher("loginoutcome.jsp");
+	     dispatcher.forward(request, response);
 		}
+		else {
+		     RequestDispatcher dispatcher = request.getRequestDispatcher("login-failure.jsp");
+		     dispatcher.forward(request, response);
+		}
+//		response.sendRedirect("loginoutcome.jsp");
+
 	}
 
 }
