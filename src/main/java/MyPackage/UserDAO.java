@@ -30,8 +30,6 @@ public class UserDAO {
     			
             if (userIDRS.next()) {
             	userID = userIDRS.getInt(1);
-            	System.out.println("Existing user ID: " + userID + "\tExisting user nickname: " + user.getUsername() 
-            	+ "\tExisting user password: " + user.getPassword());
             }
             else {
             		PreparedStatement preparedStatement1 = connection.prepareStatement(
@@ -51,7 +49,7 @@ public class UserDAO {
 		return rowsAffected;
     }
     
-public int loginAsUser(User user) {
+public String loginAsUser(User user) {
     	
     	// Check if user exists first
     	int userID = 0;
@@ -68,43 +66,15 @@ public int loginAsUser(User user) {
     			
             if (userIDRS.next()) {
             	userID = userIDRS.getInt(1);
-            	username = userIDRS.getString(2);
-            	System.out.println("Existing user ID: " + userID + "\tExisting user nickname: " + username);
+            	username = userIDRS.getString(2);	
+            	
+            	rowsAffected = 2;
             	}
             }
     	
     	catch (SQLException e) {
     		e.printStackTrace();
     	}
-		return rowsAffected;
-    }
-    
-    public void updateGame(Game game) {
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(
-                     "UPDATE games SET title=?, description=? WHERE id=?")) {
-
-            preparedStatement.setString(1, game.getTitle());
-            preparedStatement.setString(2, game.getDescription());
-
-            preparedStatement.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-    
-    public void deleteGame(int gameId) {
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(
-                     "DELETE FROM games WHERE id=?")) {
-
-            preparedStatement.setInt(1, gameId);
-            preparedStatement.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-    
+		return username;
+    } 
 }

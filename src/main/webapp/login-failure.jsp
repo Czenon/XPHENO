@@ -10,8 +10,10 @@
     <body>
                 <div class="container">
                     <div class="container2">
-                        Registration successful! Welcome!<br>
-                        <a href="login.jsp">Go to the login page.</a>
+                        Error!
+                        <br>
+                        The username and/or password is incorrect!<br>
+                        <a href="login.jsp">Go back to the login page.</a>
                     </div>
                 </div>
     </body>

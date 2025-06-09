@@ -10,8 +10,10 @@
     <body>
                 <div class="container">
                     <div class="container2">
-                        Registration successful! Welcome!<br>
-                        <a href="login.jsp">Go to the login page.</a>
+                        Game upload failed! 
+                        <br>
+                        There's already a game with your title, choose another!<br>
+                        <a href="upload.jsp">Go back to the upload page.</a>
                     </div>
                 </div>
     </body>

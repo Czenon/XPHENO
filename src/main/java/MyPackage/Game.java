@@ -6,6 +6,7 @@ public class Game {
 	private String description;
 	private String genre;
 	private String coverimgpath;
+	private String author;
 	private int author_id;
 	
 	public int getId() {
@@ -54,5 +55,13 @@ public class Game {
 
 	public void setCoverimgpath(String coverimgpath) {
 		this.coverimgpath = coverimgpath;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 }
